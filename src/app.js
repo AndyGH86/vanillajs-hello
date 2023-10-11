@@ -1,38 +1,26 @@
-let pronoun = ['the', 'our'];
-    let adj = ['great', 'big'];
-    let noun = ['jogger', 'racoon'];
+const part1 = ["my", "the"];
+const part2 = ["great", "super"];
+const part3 = ["website", "project"];
 
-    function generateDomainNames(pronoun, adj, noun) {
-      const domainNames = [];
+const inputElement = document.getElementById("input");
+const domainList = document.getElementById("domainList");
+const generateAndDisplayDomainNames = () => {
+  const input = inputElement.value;
 
-      for (let p of pronoun) {
-        for (let a of adj) {
-          for (let n of noun) {
-            const domainName = `${p}${a}${n}.com`;
-            domainNames.push(domainName);
-          }
-        }
+  domainList.innerHTML = "";
+
+  let domainNames = [];
+
+  for (const p1 of part1) {
+    for (const p2 of part2) {
+      for (const p3 of part3) {
+        const domainName = `${p1}${p2}${input}${p3}.com`;
+        domainNames.push(domainName);
+
+        const listItem = document.createElement("li");
+        listItem.textContent = domainName;
+        domainList.appendChild(listItem);
       }
-
-      return domainNames;
     }
-
-    // Función para mostrar los resultados en la página web
-    function displayResults() {
-      const domainNames = generateDomainNames(pronoun, adj, noun);
-      const resultsList = document.getElementById('results');
-
-      // Limpiar la lista de resultados
-      resultsList.innerHTML = '';
-
-      // Agregar cada nombre de dominio a la lista
-      domainNames.forEach((name) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = name;
-        resultsList.appendChild(listItem);
-      });
-    }
-
-    // Agregar un evento click al botón para generar los nombres de dominio
-    const generateButton = document.getElementById('generateButton');
-    generateButton.addEventListener('click', displayResults);
+  }
+};
