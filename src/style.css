@@ -1,6 +1,6 @@
 body::before{
     content: "";
-    background-image: url("./fibonacci\ tatuaje.jpeg");
+    background-image: url("./books.png");
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -8,6 +8,6 @@ body::before{
     left: 0;
     right: 0;
     bottom: 0;
-    
+    opacity: .4;
     z-index: -1;
 }
